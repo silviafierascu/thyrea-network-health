@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&family=Lora:ital,wght@0,400;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-soil: #3d2b1f;
+  --color-bark: #6b4226;
+  --color-moss: #5a7a3a;
+  --color-sage: #8aab6a;
+  --color-leaf: #b5cc8e;
+  --color-straw: #e8d5a3;
+  --color-cream: #f5ede0;
+  --color-sky: #c4ddd6;
+  --color-water: #7ab3a8;
+  --color-dusk: #2d4a3e;
+  --color-glow: #d4a85a;
+  --color-accent: #c4603a;
+
+  --font-playfair: 'Playfair Display', serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-lora: 'Lora', serif;
+}
+
+@layer base {
+  body {
+    @apply bg-soil text-cream font-lora min-h-screen overflow-x-hidden;
+  }
+
+  body::before {
+    content: '';
+    @apply fixed inset-0 pointer-events-none z-0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 20% 30%, rgba(90,122,58,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 70%, rgba(61,43,31,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 40% at 60% 20%, rgba(212,168,90,0.08) 0%, transparent 50%);
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease forwards;
+}
